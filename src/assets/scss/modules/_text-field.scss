@@ -1,0 +1,49 @@
+// All input styles
+
+.text-field {
+  position: relative;
+  font-family: $font-secondary;
+
+  .field-label {
+    display: block;
+    font-size: $fs-md;
+    color: $color-text;
+    margin-bottom: 8px;
+    line-height: 1.25em;
+  }
+
+  input, textarea {
+    width: 100%;
+    font-size: $fs-md;
+    line-height: 46px;
+    color: $color-text;
+    padding-left: 20px;
+    border-radius: 90px;
+    padding-right: 20px;
+    transition: all $trns-duration;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+
+    &:focus {
+      border-color: $color-primary;
+    }
+  }
+
+  input {
+    height: 48px;
+  }
+
+  textarea {
+    padding: 0 10px;
+    min-height: 100px;
+    resize: vertical;
+    max-height: 160px;
+  }
+}
+
+.error-message {
+  margin-top: 8px;
+  margin-bottom: 0;
+  font-size: $fs-sm;
+  color: $color-error;
+}

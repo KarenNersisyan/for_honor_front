@@ -1,0 +1,31 @@
+@each $key, $val in $heading-font-sizes {
+  #{$key},.#{$key} {
+    font-size: #{$val};
+    font-family: $font-primary;
+    font-weight: map-get($font-weights, medium);
+  }
+}
+
+.h1, h1, .h2, h2, h3, .h3 {
+  line-height: 120%;
+}
+
+h4, .h4 {
+  line-height: 130%;
+}
+
+h5, .h5, h6, .h6 {
+  line-height: 140%;
+}
+
+@each $key, $val in $text-font-sizes {
+  .fs-#{$key} {
+    font-size: #{$val};
+  }
+}
+
+@each $key, $val in $font-weights {
+  .fw-#{$key} {
+    font-weight: #{$val};
+  }
+}

@@ -1,0 +1,63 @@
+// Paths
+$fonts-folder: "../fonts";
+$images-folder: '../img/';
+
+// Fonts
+$font-primary: "Orbitron", serif;
+$font-secondary: "Inter", serif;
+$font-icons: "VPS";
+
+// Color Usage
+$color-primary: #00E340;
+$color-error: #e44c23;
+
+// Descriptive Base Colors
+$color-text: rgba(#fff, 0.9);
+$color-gray: #B9B9B9;
+
+// Text
+$base-font-size: 16px;
+$base-line-height: 1.5;
+
+// Font Sizes
+$fs-xs: 12px;
+$fs-sm: 14px;
+$fs-md: 16px;
+$fs-lg: 18px;
+$fs-xl: 20px;
+
+// Heading Sizes
+$h1: 56px;
+$h2: 48px;
+$h3: 40px;
+$h4: 32px;
+$h5: 24px;
+$h6: 20px;
+
+// Border Radius
+$br-default: 4px;
+$br-md: 10px;
+$br-lg: 30px;
+$br-rounded: 50%;
+$br-none: 0;
+
+// Transitions
+$trns-duration: .3s;
+$trns-duration-lg: 1s;
+$trns-delay: 50ms;
+
+// Container
+$cont-width: 1320px;
+$cont-padding: 30px;
+
+// Resolutions
+$screen-lg: 1280px;
+$screen-md: 1024px;
+$screen-sm: 768px;
+$screen-xs: 480px;
+$screen-xxs: 360px;
+
+:root {
+  --chakra-fonts-body: $font-secondary;
+  --chakra-fonts-heading: $font-secondary;
+}

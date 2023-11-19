@@ -1,0 +1,114 @@
+.btn {
+  padding-top: 0;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: $fs-md;
+  padding-bottom: 0;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  font-family: $font-secondary;
+  transition: all $trns-duration;
+
+  &.radius {
+    border-radius: 90px;
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &.variant {
+    &-contained {
+      border: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+
+      &.color {
+        &-primary {
+          color: #000;
+          background-color: $color-primary;
+        }
+
+        &-white {
+          color: #000;
+          background-color: #fff;
+        }
+      }
+
+      &.size {
+        &-large {
+          height: 50px;
+          line-height: 50px;
+        }
+
+        &-medium {
+          height: 50px;
+          line-height: 50px;
+        }
+
+        &-small {
+          height: 40px;
+          line-height: 40px;
+        }
+      }
+    }
+
+    &-outlined {
+      border: 1px solid;
+      padding-left: 24px;
+      padding-right: 24px;
+      background-color: transparent;
+
+      &.color {
+        &-white {
+          color: #fff;
+          border-color: #fff;
+        }
+      }
+
+      &.size {
+        &-large {
+          height: 50px;
+          line-height: 48px;
+        }
+
+        &-small {
+          height: 40px;
+          line-height: 38px;
+        }
+      }
+    }
+
+    &-text {
+      border: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+      background-color: transparent;
+
+      &.color {
+        &-white {
+          color: #fff;
+        }
+      }
+
+      &.size {
+        &-large {
+          height: 50px;
+          line-height: 50px;
+        }
+
+        &-small {
+          height: 40px;
+          line-height: 40px;
+        }
+      }
+    }
+  }
+
+  &.width {
+    &-full {
+      width: 100%;
+    }
+  }
+}

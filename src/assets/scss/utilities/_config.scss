@@ -1,0 +1,59 @@
+$resolutions: (
+  xxs: $screen-xxs,
+  xs: $screen-xs,
+  sm: $screen-sm,
+  md: $screen-md,
+  lg: $screen-lg
+) !default;
+
+$spaces: (
+  1: 4px,
+  2: 8px,
+  3: 12px,
+  4: 16px,
+  5: 20px,
+  6: 24px,
+  7: 28px,
+  8: 32px,
+  9: 36px,
+  10: 40px
+) !default;
+
+$grid-cols-count: 12;
+$grid-spacing: 10px;
+
+$font-weights: (
+  regular: 400,
+  medium: 500,
+);
+
+$text-font-sizes: (
+  base: $base-font-size,
+  xs: $fs-xs,
+  sm: $fs-sm,
+  md: $fs-md,
+  lg: $fs-lg,
+  xl: $fs-xl,
+) !default;
+
+$heading-font-sizes: (
+  h6: $h6,
+  h5: $h5,
+  h4: $h4,
+  h3: $h3,
+  h2: $h2,
+  h1: $h1,
+) !default;
+
+
+$colors: (
+  primary: $color-primary,
+  text: $color-text,
+  gray: $color-gray,
+  white: #fff,
+  error: $color-error
+) !default;
+
+$text-colors: (
+  gray: $color-gray,
+) !default;

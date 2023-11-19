@@ -1,0 +1,68 @@
+.react-tabs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .tab-header {
+    padding: 6px;
+    margin: auto;
+    border-radius: 90px;
+    margin-bottom: 90px;
+    display: inline-flex;
+    border: 1px solid rgba(#fff, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
+
+    .tab-nav {
+      &:not(:first-child) {
+        margin-left: 24px;
+      }
+      &.react-tabs__tab--selected {
+        background-color: transparent;
+
+        .tab-number, .tab-label {
+          color: $color-text;
+        }
+      }
+
+      &.completed {
+        .tab-number {
+          color: #000;
+          border-color: $color-primary;
+          background-color: $color-primary;
+        }
+
+        .tab-label {
+          font-weight: 500;
+          color: $color-primary;
+        }
+      }
+    }
+
+    .tab-nav-item {
+      display: flex;
+      align-items: center;
+    }
+
+    .tab-number {
+      width: 38px;
+      height: 38px;
+      display: flex;
+      font-weight: 400;
+      border-radius: 100%;
+      align-items: center;
+      color: rgba(#fff, 0.5);
+      justify-content: center;
+      font-family: $font-secondary;
+      border: 1px solid rgba(#fff, 0.7);
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .tab-label {
+      padding: 0 6px;
+      margin-left: 10px;
+      display: inline-block;
+      color: rgba(#fff, 0.5);
+      font-family: $font-secondary;
+    }
+  }
+}
