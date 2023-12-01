@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Box, Table, TableContainer, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
+import { formatNumberWithCommas } from '../../helpers/format.js';
 
 // ----------------------------------------------------------------------
 
@@ -41,11 +42,12 @@ export default function GeneralSingle() {
                 <Th isNumeric>Liquidity</Th>
                 <Th isNumeric>Market Cap</Th>
                 <Th isNumeric>Price Change 24H</Th>
-                <Th isNumeric>Price in USD</Th>
                 <Th isNumeric>Volume 24H</Th>
                 <Th isNumeric>Buys</Th>
                 <Th isNumeric>Sells</Th>
                 <Th isNumeric>TXNS</Th>
+                <Th isNumeric>Time Difference</Th>
+                <Th isNumeric>Created Date</Th>
               </Tr>
             </Thead>
             <Tbody>
@@ -56,14 +58,15 @@ export default function GeneralSingle() {
                   </Link>
                 </Td>
                 <Td>{tokenDetails.lp_holder}</Td>
-                <Td isNumeric color={tokenDetails.liquidity < tokenDetails.market_cap ? '#00E340':'red'}>${tokenDetails.liquidity} x{parseFloat(tokenDetails.market_cap / tokenDetails.liquidity).toFixed(2)}</Td>
-                <Td isNumeric>${tokenDetails.market_cap}</Td>
-                <Td isNumeric>{tokenDetails.price_change_percent}%</Td>
-                <Td isNumeric>${tokenDetails.price_usd}</Td>
-                <Td isNumeric>${tokenDetails.volume}</Td>
+                <Td isNumeric color={tokenDetails.liquidity < tokenDetails.market_cap ? '#00E340':'#FF5722'}>${formatNumberWithCommas(tokenDetails.liquidity)} x{parseFloat(tokenDetails.market_cap / tokenDetails.liquidity).toFixed(2)}</Td>
+                <Td isNumeric>${formatNumberWithCommas(tokenDetails.market_cap)}</Td>
+                <Td isNumeric>{formatNumberWithCommas(tokenDetails.price_change_percent)}%</Td>
+                <Td isNumeric>${formatNumberWithCommas(tokenDetails.volume)}</Td>
                 <Td isNumeric>{tokenDetails.buys_count}</Td>
                 <Td isNumeric>{tokenDetails.sells_count}</Td>
                 <Td isNumeric>{tokenDetails.txn_count}</Td>
+                <Td isNumeric color={tokenDetails.timeDifference < 20 ? '#00E340' : null}>{tokenDetails.timeDifference}</Td>
+                <Td isNumeric>{tokenDetails.createdDate}</Td>
               </Tr>
             </Tbody>
           </Table>

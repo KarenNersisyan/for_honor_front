@@ -10,6 +10,7 @@ import {
   Td,
   TableContainer, Box,
 } from '@chakra-ui/react';
+import { formatNumberWithCommas } from '../../helpers/format.js';
 
 // ----------------------------------------------------------------------
 
@@ -23,7 +24,9 @@ export default function General() {
         const response = await fetch('http://localhost:8080/api/newTokens');
         const result = await response.json();
         setData(result);
-        console.log(result);
+        //console.log(result);
+
+        console.log(result.filter(item => item.txn_count > 600));
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -50,15 +53,17 @@ export default function General() {
               <Th isNumeric>Liquidity</Th>
               <Th isNumeric>Market Cap</Th>
               <Th isNumeric>Price Change 24H</Th>
-              <Th isNumeric>Price in USD</Th>
               <Th isNumeric>Volume 24H</Th>
               <Th isNumeric>Buys</Th>
               <Th isNumeric>Sells</Th>
               <Th isNumeric>TXNS</Th>
+              <Th isNumeric>TXNS / Time</Th>
+              <Th isNumeric>Time Difference</Th>
+              <Th isNumeric>Created Date</Th>
             </Tr>
           </Thead>
           <Tbody>
-            {data && data.map((item, index) =>
+            {data && data.filter(item => item.buys_count > 100).map((item, index) =>
               <Tr key={index}>
                 <Td title={item.base_token_name} color={'#00E340'} fontWeight={500}>
                   <Link to={`/dashboard/general/${item.pool_address}`} target={'_blank'}>
@@ -66,14 +71,16 @@ export default function General() {
                   </Link>
                 </Td>
                 <Td>{item.lp_holder}</Td>
-                <Td isNumeric color={item.liquidity < item.market_cap ? '#00E340':'red'}>${item.liquidity} x{parseFloat(item.market_cap / item.liquidity).toFixed(2)}</Td>
-                <Td isNumeric>${item.market_cap}</Td>
-                <Td isNumeric>{item.price_change_percent}%</Td>
-                <Td isNumeric>${item.price_usd}</Td>
-                <Td isNumeric>${item.volume}</Td>
+                <Td isNumeric color={item.liquidity < item.market_cap ? '#00E340':'#FF5722'}>${formatNumberWithCommas(item.liquidity)} x{parseFloat(item.market_cap / item.liquidity).toFixed(2)}</Td>
+                <Td isNumeric>${formatNumberWithCommas(item.market_cap)}</Td>
+                <Td isNumeric>{formatNumberWithCommas(item.price_change_percent)}%</Td>
+                <Td isNumeric>${formatNumberWithCommas(item.volume)}</Td>
                 <Td isNumeric>{item.buys_count}</Td>
                 <Td isNumeric>{item.sells_count}</Td>
                 <Td isNumeric>{item.txn_count}</Td>
+                <Td isNumeric>{parseFloat(item.buys_count / parseInt(item.timeDifference)).toFixed(2)}</Td>
+                <Td isNumeric color={item.timeDifference < 20 ? '#00E340' : null}>{item.timeDifference}</Td>
+                <Td isNumeric>{item.createdDate}</Td>
               </Tr>
             )}
           </Tbody>
