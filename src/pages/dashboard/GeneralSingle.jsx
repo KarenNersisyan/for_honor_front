@@ -13,7 +13,7 @@ export default function GeneralSingle() {
     // Function to fetch data from http://localhost:8080/api/newTokens/{id}
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/newTokens/${id}`);
+        const response = await fetch(`https://krepton-backend.onrender.com/api/newTokens/${id}`);
         const result = await response.json();
         setTokenDetails(result);
         console.log(result);
